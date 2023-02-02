@@ -19,7 +19,6 @@ router.post("/", verify, async (req, res) => {
 });
 
 //UPDATE
-
 router.put("/:id", verify, async (req, res) => {
   if (req.user.isAdmin) {
     try {

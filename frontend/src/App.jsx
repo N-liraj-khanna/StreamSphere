@@ -35,7 +35,7 @@ const App = () => {
         />
         {user && (
           <>
-            <Route exact path="/movies" element={<Home type="movies" />} />
+            <Route exact path="/movies" element={<Home type="movie" />} />
             <Route exact path="/series" element={<Home type="series" />} />
             <Route exact path="/watch" element={<Watch />} />
           </>
