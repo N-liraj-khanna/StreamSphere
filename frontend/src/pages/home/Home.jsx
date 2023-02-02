@@ -16,13 +16,13 @@ const Home = ({ type }) => {
           `lists${type ? "?type=" + type : ""}${
             genre ? "&genre=" + genre : ""
           }`,
-          {
-            headers: {
-              token:
-                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZGEzMGJiNDk1MGMxNTcyYzNkMTEwZiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY3NTI0NjIxOSwiZXhwIjoxNjc1Njc4MjE5fQ.xHlvHunnvLpIP30CdttUSL6O5EvSWbJlqGf1UD1wrko",
-              // "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken,
-            },
-          }
+          // {
+          //   headers: {
+          //     token:
+          //       "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZGEzMGJiNDk1MGMxNTcyYzNkMTEwZiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY3NTI0NjIxOSwiZXhwIjoxNjc1Njc4MjE5fQ.xHlvHunnvLpIP30CdttUSL6O5EvSWbJlqGf1UD1wrko",
+          //     // "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken,
+          //   },
+          // }
         );
         setLists(res.data);
       } catch (err) {
