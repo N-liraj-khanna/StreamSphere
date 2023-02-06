@@ -6,7 +6,7 @@ export default function List() {
   const location = useLocation();
   const list = location.list;
   if(!list){
-    return (<>Nothing</>)
+    return (<>Does not work! Go back!</>)
   }
   return (
     

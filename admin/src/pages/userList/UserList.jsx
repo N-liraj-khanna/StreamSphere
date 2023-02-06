@@ -3,15 +3,34 @@ import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
 import { userRows } from "../../dummyData";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function UserList() {
   const [data, setData] = useState(userRows);
+  const getUsers = async (dispatch) => {
+    try {
+      const res = await axios.get("/users", {
+        headers: {
+          token:
+            "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+        },
+      });
+      const newData = res.data.map((data) => {
+        data.id = data._id;
+        return data;
+      });
+      setData(newData);
+    } catch (err) {}
+  };
+  useEffect(() => {
+    getUsers();
+  });
 
   const handleDelete = (id) => {
     setData(data.filter((item) => item.id !== id));
   };
-  
+
   const columns = [
     { field: "id", headerName: "ID", width: 90 },
     {

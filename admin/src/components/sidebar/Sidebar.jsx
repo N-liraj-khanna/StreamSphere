@@ -29,14 +29,6 @@ export default function Sidebar() {
                 Home
               </li>
             </Link>
-            <li className="sidebarListItem">
-              <Timeline className="sidebarIcon" />
-              Analytics
-            </li>
-            <li className="sidebarListItem">
-              <TrendingUp className="sidebarIcon" />
-              Sales
-            </li>
           </ul>
         </div>
         <div className="sidebarMenu">
@@ -60,7 +52,7 @@ export default function Sidebar() {
                 Lists
               </li>
             </Link>
-            <Link to="/newMovie" className="link">
+            <Link to="/newproduct" className="link">
               <li className="sidebarListItem">
                 <AddToQueue className="sidebarIcon" />
                 Add Movie
