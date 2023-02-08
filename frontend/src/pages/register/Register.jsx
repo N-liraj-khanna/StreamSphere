@@ -8,12 +8,12 @@ export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
+  const [error, setError] = useState("");
   const history = useNavigate();
 
   const emailRef = useRef();
   const passwordRef = useRef();
   const usernameRef = useRef();
-  console.log(email,username,password);
 
   const handleStart = () => {
     setEmail(emailRef.current.value);
@@ -23,9 +23,12 @@ export default function Register() {
     setPassword(passwordRef.current.value);
     setUsername(usernameRef.current.value);
     try {
-      await axios.post("auth/register", { email,username, password });
+      await axios.post("auth/register", { email, username, password });
       history.push("/login");
-    } catch (err) {}
+    } catch (err) {
+      console.log(err)
+      setError(err._message);
+    }
   };
   return (
     <div className="register">
@@ -61,6 +64,7 @@ export default function Register() {
             </button>
           </form>
         )}
+        <p>{error._message}</p>
       </div>
     </div>
   );

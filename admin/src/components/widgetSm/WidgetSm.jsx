@@ -11,8 +11,7 @@ export default function WidgetSm() {
       try {
         const res = await axios.get("/users?new=true", {
           headers: {
-            token:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZGEzMGJiNDk1MGMxNTcyYzNkMTEwZiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY3NTMyMTIyNiwiZXhwIjoxNjc1NzUzMjI2fQ.MfoQkCr4CSYfmzYJEqB_voDESAi7L19VWrwRO0mQLCA",
+            token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
           },
         });
         setNewUsers(res.data);
@@ -22,7 +21,7 @@ export default function WidgetSm() {
     };
     getNewUsers();
   }, []);
-  
+
   return (
     <div className="widgetSm">
       <span className="widgetSmTitle">New Join Members</span>
