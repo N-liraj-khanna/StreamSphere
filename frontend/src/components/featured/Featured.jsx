@@ -9,11 +9,10 @@ export default function Featured({ type, setGenre }) {
   useEffect(() => {
     const getRandomContent = async () => {
       try {
-        const res = await axios.get(`/movies/random?type=${type}`, {
+        const res = await axios.get(`movies/random?type=${type}`, {
           headers: {
             token:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZGEzMGJiNDk1MGMxNTcyYzNkMTEwZiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY3NTI0NjIxOSwiZXhwIjoxNjc1Njc4MjE5fQ.xHlvHunnvLpIP30CdttUSL6O5EvSWbJlqGf1UD1wrko",
-            // "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken,
+              "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken,
           },
         });
         setContent(res.data[0]);
@@ -24,6 +23,7 @@ export default function Featured({ type, setGenre }) {
     getRandomContent();
   }, [type]);
 
+  console.log(content);
   return (
     <div className="featured">
       {type && (

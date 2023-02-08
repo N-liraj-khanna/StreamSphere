@@ -25,7 +25,6 @@ export default function List({ list }) {
       listRef.current.style.transform = `translateX(${-230 + distance}px)`;
     }
   };
-  // console.log(list)
   return (
     <div className="list">
       <span className="listTitle">{list.title}</span>
@@ -37,7 +36,7 @@ export default function List({ list }) {
         />
         <div className="container" ref={listRef}>
           {list.content.map((item, i) => (
-            <ListItem index={i} item={item} key={i} className="list-item"/>
+            <ListItem index={i} item={item} />
           ))}
         </div>
         <ArrowForwardIosOutlined

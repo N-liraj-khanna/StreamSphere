@@ -9,7 +9,11 @@
     url("http://mppmduse2pmpovwapp.azurewebsites.net/wp-content/uploads/2019/09/netflix-background-9.jpg");
   background-size: cover;
   position: relative;
-
+  a {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+  }
   .top {
     .wrapper {
       padding: 20px 50px;

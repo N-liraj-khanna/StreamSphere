@@ -12,18 +12,20 @@ const Home = ({ type }) => {
   useEffect(() => {
     const getRandomLists = async () => {
       try {
-        const res = await axios.get(
-          `lists${type ? "?type=" + type : ""}${
-            genre ? "&genre=" + genre : ""
-          }`,
-          {
-            headers: {
-              token:
-                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZGEzMGJiNDk1MGMxNTcyYzNkMTEwZiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY3NTI0NjIxOSwiZXhwIjoxNjc1Njc4MjE5fQ.xHlvHunnvLpIP30CdttUSL6O5EvSWbJlqGf1UD1wrko",
-              // "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken,
-            },
+        var l = `lists`;
+        if (type) {
+          l = l + "?type=" + type;
+          if (genre) {
+            l = l + "&genre=" + genre;
           }
-        );
+        }
+        const res = await axios.get(l, {
+          headers: {
+            token:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZGEzMGJiNDk1MGMxNTcyYzNkMTEwZiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY3NTI0NjIxOSwiZXhwIjoxNjc1Njc4MjE5fQ.xHlvHunnvLpIP30CdttUSL6O5EvSWbJlqGf1UD1wrko",
+            // "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken,
+          },
+        });
         setLists(res.data);
       } catch (err) {
         console.log(err);
@@ -37,7 +39,7 @@ const Home = ({ type }) => {
       <Navbar />
       <Featured type={type} setGenre={setGenre} />
       {lists.map((list) => (
-        <List list={list} key={list._id} className="list"/>
+        <List list={list} key={list._id} className="list" />
       ))}
     </div>
   );
