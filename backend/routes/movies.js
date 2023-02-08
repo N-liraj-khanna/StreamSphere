@@ -8,8 +8,11 @@ router.post("/", verify, async (req, res) => {
   if (req.user && req.user.isAdmin) {
     const newMovie = new Movie(req.body);
     try {
+      console.log("savedMovie")
       const savedMovie = await newMovie.save();
+      console.log(savedMovie)
       res.status(201).json(savedMovie);
+      console.log("Created")
     } catch (err) {
       res.status(500).json(err);
     }

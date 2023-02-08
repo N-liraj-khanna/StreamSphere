@@ -61,7 +61,6 @@ export default function NewMovie() {
     e.preventDefault();
     createMovie(movie, dispatch);
   };
-  console.log(movie);
   return (
     <div className="newProduct">
       <h1 className="addProductTitle">New Movie</h1>

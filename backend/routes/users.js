@@ -62,14 +62,12 @@ router.get("/find/:id", async (req, res) => {
 
 //GET ALL
 router.get("/", verify, async (req, res) => {
-  console.log("ho")
   const query = req.query.new;
   if (req.user && req.user.isAdmin) {
     try {
       const users = query
         ? await User.find().sort({ _id: -1 }).limit(5)
         : await User.find();
-        console.log(users)
       return res.status(200).json(users);
     } catch (err) {
       return res.status(500).json(err);

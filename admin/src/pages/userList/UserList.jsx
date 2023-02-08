@@ -1,13 +1,12 @@
 import "./userList.css";
 import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
-import { userRows } from "../../dummyData";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
 export default function UserList() {
-  const [data, setData] = useState(userRows);
+  const [data, setData] = useState();
   const getUsers = async (dispatch) => {
     try {
       const res = await axios.get("/users", {
@@ -76,16 +75,15 @@ export default function UserList() {
       },
     },
   ];
-
-  return (
-    <div className="userList">
-      <DataGrid
-        rows={data}
-        disableSelectionOnClick
-        columns={columns}
-        pageSize={8}
-        checkboxSelection
-      />
-    </div>
-  );
+    return (
+      <div className="userList">
+        <DataGrid
+          rows={data}
+          disableSelectionOnClick
+          columns={columns}
+          pageSize={8}
+          checkboxSelection
+        />
+      </div>
+    );
 }

@@ -5,7 +5,6 @@ import { Publish } from "@material-ui/icons";
 export default function Movie() {
   const location = useLocation();
   const movie = location.movie;
-  console.log(movie);
   if (!movie) {
     return <>Does not work! Please go back, delete and create new.</>;
   }

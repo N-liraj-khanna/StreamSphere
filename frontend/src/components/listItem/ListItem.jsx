@@ -59,7 +59,6 @@ export default function ListItem({ index, item }) {
           </>
         )}
       </div>
-      //{" "}
     </Link>
   );
 }
