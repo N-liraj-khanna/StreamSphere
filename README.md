@@ -5,7 +5,7 @@
   Welcome to Stream Sphere 👋
   <br>
 </h1>
-<h4 align="center">A web application built using Node JS with Socket.IO that allows you to play virtual charades with your friends using a drawing canvas.</h4>
+<h4 align="center">A Video streaming web application with dashboard for admin and complete control over users and the videos to be uploaded, the users can register, sign in and stream movies & series.</h4>
 
 <p align="center">
   <a href="#introduction">Introduction</a> •
@@ -20,19 +20,33 @@
 
 ## Introduction
 
-Welcome to Art Arena, this is an application that allows you to play virtual charades online with your friends. One person get to create a room by selecting their avatar and background. After creation of the room, there will be a link generated, the creater can share the link to their friends and wait for them to join. Anyone with the link can join. Once all the members joined, the creator is the only person allowed to start and do the respective setup of the game like custom words, language selection, probablity, rounds and duration per question.
+Welcome to Stream Sphere, this is an Video Streaming application, similar to Netflix, Amazon Prime, Hulu, Apple TV+ and more more. The admin will have the whole control of everything that happens in the environment. The Admin Panel provide features to view users, when they joined with graphical view in a graph(Analytics), delete, and latest joined members. The admin can only upload movies and series for the users to stream, and select the list its supposed to show. Later can edit any movie and the list itself. The Admin can only be created thorugh the database direct interaction by DB Administrator.
 
-Once the game starts, the creator will be the first one to go, he/she must select a  word of three given by the application. And they can to draw using different colors, erase them etc. Respectively other's have to guess the word in the chatbox, anyone can see any text, except for the correct answer. Also the application assist by measuring the distance of the correctness of answer. Once guessed correct, your points will be increased. After the respective number of rounds the scorecard of who won will be generated. This game is  inspired in the Covid period lockdown to still interact and have fun with friends virtually.
+Then the users, can create account and login to view the movies and series uploaded by admin. Just by adding a payment gateway as a middleware between login and admin pages, we can make this subscription based video streaming service. The goal of this application is to get an understanding of how an entire software development management system works end to end.
+
 
 ## Application in Action
 
-![1.png](Screenshots/1.jpg)
+### Client Interface
+![1.png](./imgs/1.jpg)
 
-![2.png](Screenshots/2.jpg)
+![2.png](./imgs/2.jpg)
 
-![3.png](Screenshots/3.jpg)
+![3.png](./imgs/3.jpg)
 
-![4.png](Screenshots/4.jpg)
+### Admin Panel
+![4.png](./imgs/4.jpg)
+
+![5.png](./imgs/5.jpg)
+
+![6.png](./imgs/6.jpg)
+
+![7.png](./imgs/7.jpg)
+
+![8.png](./imgs/8.jpg)
+
+
+
 
 ## Installation
 
@@ -41,60 +55,64 @@ Install with NPM:
 ```
 Make sure Node JS is installed
 
-> npm install
+> node --version
+> npm --version
 ```
 
 ## Application Structure
 
 ```
-.
-└── Art Arena/
-    ├── controllers/
-    │   ├── Canvas.js
-    │   ├── Disconnect.js
-    │   ├── Game.js
-    │   ├── helpers.js
-    │   └── Rooms.js
-    ├── node_modules
-    ├── public/
-    │   ├── css/
-    │   │   └── index.css
-    │   ├── images
-    │   └── js/
-    │       ├── avatar.js
-    │       ├── canvas.js
-    │       ├── game.js
-    │       ├── settings.js
-    │       └── transliterate.js
-    ├── views/
-    │   ├── partials/
-    │   │   ├── game-end.ejs
-    │   │   ├── game.ejs
-    │   │   ├── landing.ejs
-    │   │   ├── settings.js
-    │   │   └── tools.ejs
-    │   └── index.ejs
-    ├── .gitignore
-    ├── app.js
-    ├── config.js
-    ├── package-lock.json
-    ├── package.json
-    ├── README.md
-    ├── sockets.js
-    └── words.json
+StreamSphere
+├── admin
+│   ├── node_modules
+│   ├── public
+│   ├── src
+│   │   ├── components
+│   │   ├── context
+│   │   ├── pages
+│   │   ├── App.js
+│   │   └── index.js
+│   ├── .env
+│   ├── .gitignre
+│   └── package.json
+├── backend
+│   ├── node_modules
+│   ├── config
+│   ├── models
+│   ├── routes
+│   ├── .gitignore
+│   ├── package.json
+│   ├── verifyToken.js
+│   └── app.js
+├── frontend
+│   ├── node_modules
+│   ├── public
+│   ├── src
+│   │   ├── authContext
+│   │   ├── components
+│   │   ├── imgs
+│   │   ├── pages
+│   │   ├── App.jsx
+│   │   ├── app.scss
+│   │   └── index.js
+│   ├── .gitignore
+│   └── package.json
+├── imgs
+├── .gitignore
+└── README.md
 ```
 
 ## Key Features
 
-⭐️ Draw in Canvas - Allows you to draw in a canvas and immediately let others view the broadcasting.
+⭐️ Stream videos - Allows you to view movies and series uploaded by admin and can sort/organize them.
 
-⭐️ Words distance measure - Calculates the distance and let you know how close you're to the guessing game.
+⭐️ View Trailer - Can see the movies trailer just by hovering over the movie or series.
 
-⭐️ Customize Avatar - Choose who you wanna be with your backgorund color.
+⭐️ Upload movies/series - the admin can easily upload movies and series in the Interface given, with the percentage of uplaoding logged.
 
-⭐️ Set Language, words & probablity - Choose the language and if needed custom words you want the application to suggest with the probablity of it occuring.
+⭐️ Edit movies and series  - Later can edit the movies and series uploaded easily.
 
-⭐️ Translate Text - In the chatbox, it shows you translated suggested words for non-native english speakers.
+⭐️ Analytics - Simple analytics to analyse users fromt eh joined date in flow graph.
 
 ## How To Use
 
@@ -106,29 +124,46 @@ From your command line:
 Make sure Node JS is installed
 
 # Clone the application
-> git clone https://github.com/N-liraj-khanna/Art-Arena.git
+> git clone https://github.com/N-liraj-khanna/StreamSphere
 
 # Enter into the directory
-> cd Art-Arena
+> cd StreamSphere
 
 # Install the necessary packages
+> cd admin
 > npm install
-
-# Enjoy the application
 > npm start
+
+> cd backend
+> npm install
+> npm start
+
+> cd frontend
+> npm install
+> npm start
+
+
 ```
-The application will be running in http://localhost:3000/.
+The client application will be running in http://localhost:3000/.
+
+The admin panel will be running in http://localhost:4000/.
+
+The backend server will be running in http://localhost:5000/.
 
 ## Credits
 
 This software uses the following open source packages:
 
 - [Node JS](https://nodejs.org/)
-- [Socket.IO](https://socket.io)
-- [EJS](https://www.ejs.co/)
-- [Express](https://www.expressjs.com/)
-- [Bootsrap](https://www.getbootstrap.com/)
-- [Javascript](https://www.javascript.com/)
+- [React.JS](https://reactjs.org/)
+- [Mongo DB](https://www.mongodb.com/)
+- [Material UI](https://mui.com/)
+- [Mongoose](https://www.npmjs.com/package/mongoose)
+- [Firebase](https://firebase.google.com/)
+- [Recharts](https://recharts.org/)
+- [Axios](https://www.npmjs.com/package/axios)
+- [JWT](https://jwt.io/)
+- [SASS](https://sass-lang.com/)
 
 
 
