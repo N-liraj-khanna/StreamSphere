@@ -21,7 +21,7 @@ const App = () => {
         <Route
           exact
           path="/"
-          element={user ? <Home /> : <Navigate to="/register" />}
+          element={user ? <Home /> : <Navigate to="/login" />}
         />
         <Route
           exact
